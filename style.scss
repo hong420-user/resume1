@@ -1,0 +1,399 @@
+$themecolor: rgba(152, 57, 255, 0.5);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth; /* 添加平滑滾動效果 */
+}
+
+body {
+  position: relative;
+  .fixed-image {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    position: fixed;
+    z-index: -10;
+    bottom: 5;
+  }
+  header {
+    background-color: white;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 10px 6px -6px #777;
+    min-height: fit-content; // 確保header只占用必要的高度
+
+    section.logo {
+      display: flex;
+      flex: 3 1 500px;
+      margin: 0.5rem;
+      padding-left: 1rem;
+      img {
+        margin-top: 5px;
+        margin-left: -35px;
+        margin-right: -20px;
+        width: 6vw;
+        height: 6vh;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+    }
+    nav {
+      margin-top: 0.6rem;
+      flex: 3 1 500px;
+      ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+        padding-top: 0.5rem;
+        li {
+          a {
+            color: black;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background-color: $themecolor;
+            padding: 8px;
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap; // 允許換行
+
+    section.left-profile {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 300px;
+      margin-top: 2.5rem;
+      div.headshot {
+        background-color: white;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 3rem;
+        margin-top: -1rem;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    // 修正：left-profile-info現在是main的直接子元素
+    div.left-profile-info {
+      background-color: rgba(255, 255, 255, 0.8);
+      flex: 1 1 300px; // 添加flex屬性
+      div.info {
+        display: flex;
+        flex-direction: column;
+        h3 {
+          font-size: 2rem;
+          display: flex;
+          justify-content: center;
+          margin-top: 0.5rem;
+        }
+        div.info-item {
+          display: flex;
+          flex-direction: row;
+          margin: 10px 45px 10px;
+          img {
+            width: 3vw;
+            height: 3vh;
+          }
+          p {
+            color: black;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            a.text {
+              text-decoration: none;
+              &:hover {
+                color: $themecolor;
+              }
+            }
+          }
+        }
+      }
+      div.skill {
+        h3 {
+          font-size: 2rem;
+          display: flex;
+          justify-content: center;
+        }
+        h4 {
+          font-size: 20px;
+          display: flex;
+          justify-self: center;
+          padding-top: 10px;
+        }
+        ul {
+          margin: 1rem 5rem 1rem;
+          li {
+            margin: 10px 0rem 10px;
+          }
+        }
+      }
+    }
+
+    section.right-profile {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-left: 2px black solid;
+      display: flex;
+      flex-direction: column;
+      flex: 5 1 600px; // 調整flex比例
+      h3 {
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        scroll-margin-top: 80px;
+      }
+      h4 {
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        padding-top: 1.5rem;
+      }
+      h5 {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      p {
+        padding: 0rem 3rem;
+        font-size: 1.2rem;
+      }
+      .br {
+        padding-top: 8px;
+      }
+      table {
+        border-collapse: collapse;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        tr {
+          border: 1px solid black;
+          border-collapse: collapse;
+          th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 1rem;
+          }
+          td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 1.2rem;
+            ul {
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+      div.empty {
+        width: 2rem;
+        height: 2rem;
+      }
+      div.ending {
+        img {
+          width: 100%;
+          border: 2px black solid;
+          border-left: none;
+          border-right: none;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1260px) and (min-width: 769px) {
+  body {
+    position: relative;
+    header {
+      flex-direction: column; // 讓header內容垂直排列
+      padding: 0.5rem 0; // 只添加上下內距，避免左右擠壓
+      section.logo {
+        flex: none; // 移除flex屬性
+        margin: 0; // 重置邊距
+        padding: 0; // 重置內距
+        text-align: center; // 讓文字置中
+        display: block; // 改為block佈局
+        img {
+          display: none;
+        }
+        h1 {
+          font-size: 1.8rem; // 進一步縮小標題字體
+          margin: 0; // 移除預設邊距
+          padding: 0.3rem 0; // 縮小上下內距
+          line-height: 1.2; // 調整行高
+        }
+      }
+      nav {
+        flex: none; // 移除flex屬性
+        margin: 0; // 重置邊距
+        width: 100%; // 確保占滿寬度
+        ul {
+          flex-direction: row; // 保持水平排列
+          justify-content: center;
+          flex-wrap: wrap; // 允許換行
+          margin: 0; // 移除預設邊距
+          padding: 0.3rem 0; // 縮小上下內距
+          li {
+            margin: 0.1rem 0.2rem; // 縮小間距
+            a {
+              font-size: 0.8rem; // 進一步縮小字體
+              background-color: $themecolor; // 保持背景色
+              padding: 4px 8px; // 縮小按鈕內距
+              white-space: nowrap; // 防止文字換行
+            }
+          }
+        }
+      }
+    }
+
+    main {
+      flex-direction: column; // 在中等螢幕改為垂直排列
+
+      section.left-profile {
+        width: 100vw; // 占滿整個視口寬度
+        margin-left: calc(50% - 50vw); // 使其從螢幕邊緣開始
+        margin-right: calc(50% - 50vw); // 使其延伸到螢幕邊緣
+        margin-top: 1rem; // 縮小上邊距
+        background-color: rgba(255, 255, 255, 0.8); // 添加背景色
+        align-items: center; // 讓內容置中
+        padding: 1rem 0; // 添加上下內距
+
+        div.headshot {
+          margin: 1rem auto; // 調整邊距
+          width: 250px; // 稍微縮小
+          height: 250px;
+        }
+      }
+
+      div.left-profile-info {
+        width: 100vw; // 占滿整個視口寬度
+        margin-left: calc(50% - 50vw); // 使其從螢幕邊緣開始
+        margin-right: calc(50% - 50vw); // 使其延伸到螢幕邊緣
+        margin-top: 0; // 移除上邊距
+        display: flex;
+        flex-direction: column;
+        align-items: center; // 讓內容居中
+        padding: 1rem 0; // 添加上下內距
+
+        div.info,
+        div.skill {
+          max-width: 400px; // 限制內容寬度以保持可讀性
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    position: relative;
+    header {
+      flex-direction: column; // 確保header內容垂直排列
+      padding: 0.5rem; // 添加整體內距控制
+      section.logo {
+        flex: none; // 移除flex屬性
+        margin: 0; // 重置邊距
+        padding: 0; // 重置內距
+        text-align: center; // 讓文字置中
+        display: flex; // 改為flex佈局
+        justify-content: center; // 水平置中
+        align-items: center; // 垂直置中
+        img {
+          display: none;
+        }
+        h1 {
+          font-size: 1.5rem; // 進一步縮小標題字體
+          margin: 0; // 移除預設邊距
+          padding: 0.5rem 0; // 只添加上下內距
+        }
+      }
+      nav {
+        flex: none; // 移除flex屬性
+        margin: 0; // 重置邊距
+        ul {
+          flex-direction: column; /* 垂直排列 */
+          align-items: center; // 讓項目置中
+          margin: 0; // 移除預設邊距
+          padding: 0.5rem 0; // 只添加上下內距
+          li {
+            margin: 0.1rem 0; // 添加上下間距
+            a {
+              font-size: 0.9rem; /* 調整字體大小 */
+              background-color: $themecolor; /* 保持背景色 */
+              padding: 6px 12px; // 調整按鈕內距
+              display: inline-block; // 讓按鈕可以置中
+            }
+          }
+        }
+      }
+    }
+    main {
+      flex-direction: column; /* 垂直排列 */
+
+      section.left-profile {
+        width: 100vw; // 占滿整個視口寬度
+        margin-left: calc(50% - 50vw); // 使其從螢幕邊緣開始
+        margin-right: calc(50% - 50vw); // 使其延伸到螢幕邊緣
+        margin-top: 0.5rem; // 進一步縮小上邊距
+        background-color: rgba(255, 255, 255, 0.8); // 添加背景色
+        align-items: center; // 讓所有內容置中
+        padding: 1rem 0; // 添加上下內距
+
+        div.headshot {
+          margin: 1rem auto; // 上下邊距，左右自動置中
+          width: 200px; // 稍微縮小照片尺寸
+          height: 200px;
+          // headshot的background-color保持原樣
+        }
+
+        div.left-profile-info {
+          max-width: 400px; // 限制內容寬度以保持可讀性
+          width: 100%;
+          background-color: transparent; // 移除背景色，因為父容器已有
+        }
+      }
+
+      section.right-profile {
+        margin-top: 0; // 移除上邊距
+        h3 {
+          scroll-margin-top: 250px; // 在小螢幕大幅增加scroll-margin-top，因為header高度更高
+        }
+      }
+    }
+  }
+}
